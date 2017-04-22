@@ -5,7 +5,7 @@ require_once( "db.php" );
 
 if(isset($_POST['btn_upload']))
 {
-
+	
 	$filetmp = $_FILES["file_img"]["tmp_name"];
 	$filename = $_FILES["file_img"]["name"];
 	$filetype = $_FILES["file_img"]["type"];
@@ -14,6 +14,8 @@ if(isset($_POST['btn_upload']))
 	move_uploaded_file($filetmp,$filepath);
 	//echo "File Uploaded";
 	Images::upload( $filepath, $dbh  );
+	header('Location: reuse.php');
+	exit;
 }
 
 $imagesArray = Images::findAll( $dbh, true );
