@@ -29,12 +29,13 @@
       </form>
   </div>
     <div id="idea-list">
+      <?php for($i=0; $i<count($imagesArray);$i++){ ?>}
       <div class"panel panel-default" id="template">
         <div class="panel-heading">
-          <h3 class="panel-title">SAMPLE IDEA</h3>
+          <h3 class="panel-title">title?</h3>
         </div>
         <figure class="panel-body">
-          <img src="images/sample.jpg"/>
+          <img src="<?=$imagesArray[$i]->imgPath?>"/>
           <figcaption>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#descModal">
             See steps
@@ -50,7 +51,7 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <p>This is the sample image description</p>
+                  <p><?=$imagesArray[$i]->imgDesc?>/p>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -64,6 +65,7 @@
         </div>!-->
       </div>
     </div>
+    <?php } ?>
   </main>
 </body>
 </html>
