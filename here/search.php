@@ -29,6 +29,7 @@
       </form>
   </div>
     <div id="idea-list">
+	 <?php $x = 1 ?>
       <?php for($i=0; $i<count($imagesArray);$i++){ ?>
       <div class"panel panel-default" id="template">
         <div class="panel-heading">
@@ -38,11 +39,11 @@
           <img src="<?=$imagesArray[$i]->path?>"/>
 		  <?php $desc = $imagesArray[$i]->description ?>
           <figcaption>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#descModal <?= $i ?>">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#descModal<?=$i?>">
             See steps
             </button>
           </figcaption>
-          <div class="modal fade" id="descModal<?= $i ?>" tabindex="-1" role="dialog" aria-labelledby="descModalLabel" aria-hidden="true">
+          <div class="modal fade" id="descModal<?=$i?>" tabindex="-1" role="dialog" aria-labelledby="descModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
