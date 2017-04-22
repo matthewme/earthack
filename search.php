@@ -20,11 +20,14 @@
         <button type="button" class="btn btn-success">Search</button>
       </span>
     </form>
-    <button type="button" class="btn btn-success" id="add-button">Add</button>
-    <form action="" method="post" enctype="multipart/form-data"/>
-        <input type="file" name="file_img"/>
-          <input type="submit" name="btn_upload" value="Upload" class="btn btn-success"/>
-    </form>
+    <div id="add-idea">
+      <form action="" method="post" enctype="multipart/form-data"/>
+          <button type="button" class="btn btn-success btn-file">
+           Add Idea<input type="file" name="file_img"/>
+         </button>
+            <input type="submit" name="btn_upload" value="Upload" class="btn btn-success"/>
+      </form>
+  </div>
     <div id="idea-list">
       <div class"panel panel-default" id="template">
         <div class="panel-heading">
@@ -56,9 +59,9 @@
             </div>
           </div>
         </figure>
-        <div class="panel-footer">
+        <!--<div class="panel-footer">
           <div class="label label-success" id="template-tag">sample</div>
-        </div>
+        </div>!-->
       </div>
     </div>
   </main>
