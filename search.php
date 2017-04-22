@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>Earthy Projects</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href='//fonts.googleapis.com/css?family=Fontdiner Swanky' rel='stylesheet'>
   <link rel="stylesheet" href="views/search.css"/>
 </head>
@@ -30,12 +32,12 @@
         </div>
         <figure class="panel-body">
           <img src="images/sample.jpg"/>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#descModal">
+          <figcaption>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#descModal">
             See steps
-          </button>
-
-          <!-- Modal -->
-          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="descModalLabel" aria-hidden="true">
+            </button>
+          </figcaption>
+          <div class="modal fade" id="descModal" tabindex="-1" role="dialog" aria-labelledby="descModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -45,16 +47,14 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <figcaption>This is the sample image description</figcaption>
+                  <p>This is the sample image description</p>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
               </div>
             </div>
           </div>
-
         </figure>
         <div class="panel-footer">
           <div class="label label-success" id="template-tag">sample</div>
