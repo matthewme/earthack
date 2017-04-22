@@ -1,0 +1,19 @@
+.thumb { width : 50px;}
+
+.name { font-weight: bold;}
+
+.price {
+	position: relative;
+	float: right;
+}
+
+.error {
+	color: red;
+	font-style: italic;
+}
+
+.edit-control {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+}
