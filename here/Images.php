@@ -16,7 +16,11 @@ class Images
 		$this->path = $row['imgPath'];
 		$this->description = $row['imgDesc'];
 	}
-	
+	function upload( $path, $dbh  ) 
+	{
+		$stmt = $dbh->prepare( "INSERT INTO ".Images::$tableName."(imgPath) VALUES ('".$path."')" );
+		$stmt->execute();
+	}
 	static function findAll( $dbh ) 
 	{
 		$stmt = $dbh->prepare( "select * from ".Images::$tableName );
