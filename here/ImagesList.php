@@ -1,8 +1,9 @@
 <?php
-// include models, including the database connection
 require_once( "Images.php" );
 require_once( "db.php" );
+
 $errors = "";
+
 if(isset($_POST['btn_upload']))
 {
 	if ($_FILES['file_img']['size'] != 0)
@@ -13,7 +14,7 @@ if(isset($_POST['btn_upload']))
 		$filepath = "recyclingImgs/".$filename;
 		
 		move_uploaded_file($filetmp,$filepath);
-		$errors = "File Upload Successful !!";
+		
 		Images::upload( $filepath, $dbh  );
 		echo "ERROR!";
 		header('Location: reuse.php');
@@ -36,10 +37,12 @@ if(isset($_POST['btn_search']))
 		if(sizeof($result) == 0)
 		{
 			$errors = "SORRY...NO RESULTS FOUND.";
+			$imagesArray = array();
 		}
 		else
 		{
 			$imagesArray = $result;
+			$errors = "Showing Results For....".$_POST['idea'];
 		}
 	}
 	else
