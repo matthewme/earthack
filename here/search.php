@@ -17,7 +17,7 @@
     <form class="form input-group" method="POST" action="">
       <input type="text" class="form-control" name="idea" id="ideabox"/>
       <span class="input-group-btn">
-        <button type="button" class="btn btn-success">Search</button>
+        <button type="submit" name="btn_search" class="btn btn-success">Search</button>
       </span>
     </form>
     <div id="add-idea">
@@ -27,9 +27,9 @@
          </button>
             <input type="submit" name="btn_upload" value="Upload" class="btn btn-success"/>
       </form>
+	  <h2 id="errorMSG"><?=$errors?></h2>
   </div>
     <div id="idea-list">
-	 <?php $x = 1 ?>
       <?php for($i=0; $i<count($imagesArray);$i++){ ?>
       <div class"panel panel-default" id="template">
         <div class="panel-heading">
