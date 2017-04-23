@@ -12,13 +12,13 @@ class Images
 
 	function copyFromRow( $row ) 
 	{
-		$this->id = $row['imgID'];
+		//$this->id = $row['imgID'];
 		$this->path = $row['imgPath'];
 		$this->description = $row['imgDesc'];
 	}
-	function upload( $path, $dbh  ) 
+	function upload( $path, $desc, $dbh  ) 
 	{
-		$stmt = $dbh->prepare( "INSERT INTO ".Images::$tableName."(imgPath) VALUES ('".$path."')" );
+		$stmt = $dbh->prepare( "INSERT INTO ".Images::$tableName."(imgPath, imgDesc) VALUES ('".$path."', '".$desc."')" );
 		$stmt->execute();
 	}
 	static function findAll( $dbh ) 
@@ -33,6 +33,12 @@ class Images
 		}
 		return $result;
 	}
+	function prompt($prompt_msg){
+        echo("<script type='text/javascript'> var answer = prompt('".$prompt_msg."'); </script>");
+
+        $answer = "<script type='text/javascript'> document.write(answer); </script>";
+        return($answer);
+    }
 	public function __toString()
 	{
 		return $this->id." ".$this->path." ".$this->description."<br>";

@@ -3,26 +3,34 @@ require_once( "Images.php" );
 require_once( "db.php" );
 
 $errors = "";
-
+$word = "";
 if(isset($_POST['btn_upload']))
 {
-	if ($_FILES['file_img']['size'] != 0)
+	if (!empty($_POST['desc']))
 	{
-		$filetmp = $_FILES["file_img"]["tmp_name"];
-		$filename = $_FILES["file_img"]["name"];
-		$filetype = $_FILES["file_img"]["type"];
-		$filepath = "recyclingImgs/".$filename;
-		
-		move_uploaded_file($filetmp,$filepath);
-		
-		Images::upload( $filepath, $dbh  );
-		echo "ERROR!";
-		header('Location: reuse.php');
-		exit;
+		$word = $_POST['desc'];
+		if ($_FILES['file_img']['size'] != 0)
+		{
+			$filetmp = $_FILES["file_img"]["tmp_name"];
+			$filename = $_FILES["file_img"]["name"];
+			$filetype = $_FILES["file_img"]["type"];
+			$filepath = "recyclingImgs/".$filename;
+			
+			move_uploaded_file($filetmp,$filepath);
+			
+			Images::upload( $filepath, $word, $dbh  );
+			echo "ERROR!";
+			header('Location: reuse.php');
+			exit;
+		}
+		else
+		{
+			$errors = "Sorry...No File Attached.";
+		}
 	}
 	else
 	{
-		$errors = "Sorry...No File Attached.";
+		$errors = "Sorry...Must add a description.";
 	}
 }
 

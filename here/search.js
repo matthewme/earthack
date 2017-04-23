@@ -1,5 +1,12 @@
-$(function(){
-  $("#add-idea-btn").click(function(){
-    $("#add-idea-form").show();
-  })}
-);
+$(function()
+{
+	  $("#add-idea-btn").click(function()
+	  {
+			$("#add-idea-form").show();
+			$("#search-form").hide();
+	  })
+	  $("#btn-upload").click(function()
+	  {
+			$("#search-form").show();
+	  })
+});
