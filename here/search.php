@@ -36,7 +36,7 @@
           <h3 class="panel-title"><?=$imagesArray[$i]->id?></h3>
         </div>
         <figure class="panel-body">
-          <img src="<?=$imagesArray[$i]->path?>"/>
+          <img class ="img-fluid" src="<?=$imagesArray[$i]->path?>"/>
 		  <?php $desc = $imagesArray[$i]->description ?>
           <figcaption>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#descModal<?=$i?>">
