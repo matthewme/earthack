@@ -5,16 +5,24 @@ require_once( "db.php" );
 $errors = "";
 if(isset($_POST['btn_upload']))
 {
-	$filetmp = $_FILES["file_img"]["tmp_name"];
-	$filename = $_FILES["file_img"]["name"];
-	$filetype = $_FILES["file_img"]["type"];
-	$filepath = "recyclingImgs/".$filename;
-	
-	move_uploaded_file($filetmp,$filepath);
-	//echo "File Uploaded";
-	Images::upload( $filepath, $dbh  );
-	header('Location: reuse.php');
-	exit;
+	if ($_FILES['file_img']['size'] != 0)
+	{
+		$filetmp = $_FILES["file_img"]["tmp_name"];
+		$filename = $_FILES["file_img"]["name"];
+		$filetype = $_FILES["file_img"]["type"];
+		$filepath = "recyclingImgs/".$filename;
+		
+		move_uploaded_file($filetmp,$filepath);
+		$errors = "File Upload Successful !!";
+		Images::upload( $filepath, $dbh  );
+		echo "ERROR!";
+		header('Location: reuse.php');
+		exit;
+	}
+	else
+	{
+		$errors = "Sorry...No File Attached.";
+	}
 }
 
 $imagesArray = Images::findAll( $dbh, true );
