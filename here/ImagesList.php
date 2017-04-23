@@ -2,10 +2,9 @@
 // include models, including the database connection
 require_once( "Images.php" );
 require_once( "db.php" );
-
+$errors = "";
 if(isset($_POST['btn_upload']))
 {
-	
 	$filetmp = $_FILES["file_img"]["tmp_name"];
 	$filename = $_FILES["file_img"]["name"];
 	$filetype = $_FILES["file_img"]["type"];
@@ -20,20 +19,25 @@ if(isset($_POST['btn_upload']))
 
 $imagesArray = Images::findAll( $dbh, true );
 
-if($_POST)
+if(isset($_POST['btn_search']))
 {
 	if (!empty($_POST['idea']))
 	{
 		$term = explode(" ", $_POST['idea']);
 		$result = Images::findByKeyword($term, $dbh);
-		$imagesArray = $result;
+		if(sizeof($result) == 0)
+		{
+			$errors = "SORRY...NO RESULTS FOUND.";
+		}
+		else
+		{
+			$imagesArray = $result;
+		}
 	}
-}
-else
-{
-
-// using the Recipe model, retrieve an array of recipes
-	$imagesArray = Images::findAll( $dbh, true );
+	else
+	{
+		$imagesArray = Images::findAll( $dbh, true );
+	}
 }
 
 // require the view
