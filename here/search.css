@@ -1,10 +1,18 @@
 body{
   background-color: DarkSeaGreen;
   text-align: center;
-}header{
+}
+#title{
+	font-size: 650%;
+}
+header{
   font-family: 'Fontdiner Swanky';
   color: DarkGreen;
+}#search{
+  margin: 0 auto;
 }#template{
+}#add-idea-form{
+  display: none;
 }.btn-file {
     position: relative;
     overflow: hidden;

@@ -12,12 +12,16 @@
 </head>
 <body>
   <header>
-    <h1 id ="title">Trash-to-Treasure</h1>
+  <img src="trash.png" alt="Trash" align="left" style="width: 13%; height: 13%;">
+    <img src="treasure.png" alt="Trash" align="right" style="width: 16%; height: 16%;">
+	<br> </br>
+	<h1 id ="title">Trash-to-Treasure</h1>
+	<br> </br>
 	<br> </br>
   </header>
   <main>
     <form id="search" class="form input-group col-xs-6" method="POST" action="">
-      <input type="text" class="form-control" name="idea" id="ideabox"/>
+      <input type="text" class="form-control" name="idea" id="ideabox" placeholder="Search Box"/>
       <span class="input-group-btn">
         <button type="submit" name="btn_search" class="btn btn-success ">Search</button>
       </span>
@@ -25,14 +29,16 @@
         <button id="add-idea-btn" type="button" class="btn btn-success ">Add Idea</button>
       </span>
     </form>
-    <div id="add-idea-form" class="well-sm col-xs-8">
-      <form action="" method="post" enctype="multipart/form-data"/>
+    <div id="add-idea-form" style= "text-align: center;" class="col-lg-4 col-lg-offset-4">
+      <form class="" action="" method="post" enctype="multipart/form-data"/>
+		<br></br>
           <button type="button" class="btn btn-success btn-file">
            Share Project Image<input type="file" name="file_img"/>
          </button>
-            <input type="submit" name="btn_upload" value="Upload" class="btn btn-success"/>
+		 <input type="text" class="form-control " name="desc" id="descbox"  placeholder="Share Description"/>
+         <input type="submit" name="btn_upload" value="Upload" class="btn btn-success"/>
       </form>
-  </div>
+	</div>
   <h2 id="errorMSG"><?=$errors?></h2>
     <div id="idea-list">
 	<br></br>
